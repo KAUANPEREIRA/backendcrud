@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../database/connection');
 
-// GET /usuarios
+
 router.get('/', async (req, res) => {
   try {
     const usuarios = await connection('usuarios').select('*');
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET /usuarios/:id
+
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST /usuarios
+
 router.post('/', async (req, res) => {
   const { nome, email } = req.body;
   if (!nome || !email) return res.status(400).json({ erro: 'Nome e email obrigatórios' });
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// PUT /usuarios/:id
+
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -53,7 +53,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE /usuarios/:id
+
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
